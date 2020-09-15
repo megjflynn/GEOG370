@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 5</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+
+   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+
+</head>
+<body>
+
+    <div id="mapid"></div>
+    <style>
+        #mapid{ width: 900px; height: 500px;}
+    </style>
+
+    <script>
+        var map = L.map('mapid').setView([27.93, -82.28], 15);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map)
+        L.marker([27.9537, -82.2577]).addTo(map)
+            .bindPopup("Valrico Lake")
+            .openPopup();
+        L.marker([27.8499, -82.4864]).addTo(map)
+            .bindPopup("MacDill Airforce Base")
+            .openPopup();
+        L.marker([27.8650, -82.2273]).addTo(map)
+            .bindPopup("Lithia Springs State Park")
+            .openPopup();
+
+
+
+    </script>
+
+    
+</body>
+</html>

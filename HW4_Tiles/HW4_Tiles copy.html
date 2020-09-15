@@ -27,12 +27,41 @@
   <div id="map"></div>
   <script>
       var map = L.map('map').setView([27.942014442680367, -82.2580841239355], 14.0);
-      L.tileLayer('./HW4_Tiles/{z}/{x}/{y}.png', {
+
+      var marker = L.marker([27.9537, -82.2577])
+            .bindPopup("Valrico Lake")
+            .openPopup();
+      var base = L.marker([27.8499, -82.4864])
+            .bindPopup("MacDill Airforce Base")
+            .openPopup();
+      var park = L.marker([27.8650, -82.2273])
+            .bindPopup("Lithia Springs State Park")
+            .openPopup();
+      
+      var OSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <ahref="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(map);
+      
+      var Historical = L.tileLayer('./HW4_Tiles/{z}/{x}/{y}.png', {
         minZoom: 12,
         maxZoom: 16,
         tms: false,
         attribution: 'TilesXYZ'
-      }).addTo(map);
+      })
+
+      var daTiles = {
+        "Open Street Map": OSM,
+        "Historical aerial image": Historical
+      }
+
+      var daVectors = {
+        "Valrico Lake": marker,
+        "MacDill AirForce Base": base,
+        "Lithia Springs Park": park
+      }
+
+      L.control.layers(daTiles, daVectors).addTo(map)
+
+
   </script>
 </body>
 </html>
